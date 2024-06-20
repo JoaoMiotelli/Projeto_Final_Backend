@@ -4,24 +4,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
 public class AtendimentoMedico {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @ManyToOne
-    @NotNull
-    private Paciente paciente;
-    
-    @NotNull
-    private LocalDateTime dataAtendimento;
-    
-    private String observacoes;
+    private Long pacienteId;
+    private String descricao;
+    private LocalDateTime dataHora;
 
     public Long getId() {
         return id;
@@ -31,27 +24,27 @@ public class AtendimentoMedico {
         this.id = id;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
+    public Long getPacienteId() {
+        return pacienteId;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setPacienteId(Long pacienteId) {
+        this.pacienteId = pacienteId;
     }
 
-    public LocalDateTime getDataAtendimento() {
-        return dataAtendimento;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDataAtendimento(LocalDateTime dataAtendimento) {
-        this.dataAtendimento = dataAtendimento;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getObservacoes() {
-        return observacoes;
+    public LocalDateTime getDataHora() {
+        return dataHora;
     }
 
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 }

@@ -1,12 +1,10 @@
 package com.projeto_saude.Project_Health.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.projeto_saude.Project_Health.Models.AtendimentoMedico;
 import com.projeto_saude.Project_Health.Services.AtendimentoMedicoService;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,41 +12,31 @@ import java.util.Optional;
 public class AtendimentoMedicoController {
 
     @Autowired
-    private AtendimentoMedicoService atendimentoMedicoService;
+    private AtendimentoMedicoService atendimentoService;
 
     @GetMapping
-    public Page<AtendimentoMedico> getAllAtendimentos(Pageable pageable) {
-        return atendimentoMedicoService.getAllAtendimentos(pageable);
+    public List<AtendimentoMedico> getAllAtendimentos() {
+        return atendimentoService.getAllAtendimentos();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AtendimentoMedico> getAtendimentoById(@PathVariable Long id) {
-        Optional<AtendimentoMedico> atendimento = atendimentoMedicoService.getAtendimentoById(id);
-        return atendimento.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public Optional<AtendimentoMedico> getAtendimentoById(@PathVariable Long id) {
+        return atendimentoService.getAtendimentoById(id);
     }
 
     @PostMapping
-    public ResponseEntity<AtendimentoMedico> createAtendimento(@RequestBody AtendimentoMedico atendimento) {
-        AtendimentoMedico savedAtendimento = atendimentoMedicoService.createAtendimento(atendimento);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedAtendimento);
+    public AtendimentoMedico createAtendimento(@RequestBody AtendimentoMedico atendimento) {
+        return atendimentoService.createAtendimento(atendimento);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AtendimentoMedico> updateAtendimento(@PathVariable Long id, @RequestBody AtendimentoMedico atendimento) {
-        Optional<AtendimentoMedico> existingAtendimento = atendimentoMedicoService.getAtendimentoById(id);
-        if (existingAtendimento.isPresent()) {
-            atendimento.setId(id);
-            AtendimentoMedico updatedAtendimento = atendimentoMedicoService.createAtendimento(atendimento);
-            return ResponseEntity.ok(updatedAtendimento);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public AtendimentoMedico updateAtendimento(@PathVariable Long id, @RequestBody AtendimentoMedico atendimento) {
+        return atendimentoService.updateAtendimento(id, atendimento);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAtendimento(@PathVariable Long id) {
-        atendimentoMedicoService.deleteAtendimento(id);
-        return ResponseEntity.noContent().build();
+    public void deleteAtendimento(@PathVariable Long id) {
+        atendimentoService.deleteAtendimento(id);
     }
 }
 

@@ -1,37 +1,37 @@
 package com.projeto_saude.Project_Health.Services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.projeto_saude.Project_Health.Models.AtendimentoMedico;
 import com.projeto_saude.Project_Health.Repositories.AtendimentoMedicoRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class AtendimentoMedicoService {
 
     @Autowired
-    private AtendimentoMedicoRepository atendimentoMedicoRepository;
+    private AtendimentoMedicoRepository atendimentoRepository;
 
-    public Page<AtendimentoMedico> getAllAtendimentos(Pageable pageable) {
-        return atendimentoMedicoRepository.findAll(pageable);
+    public List<AtendimentoMedico> getAllAtendimentos() {
+        return atendimentoRepository.findAll();
     }
 
     public Optional<AtendimentoMedico> getAtendimentoById(Long id) {
-        return atendimentoMedicoRepository.findById(id);
+        return atendimentoRepository.findById(id);
     }
 
     public AtendimentoMedico createAtendimento(AtendimentoMedico atendimento) {
-        return atendimentoMedicoRepository.save(atendimento);
+        return atendimentoRepository.save(atendimento);
     }
 
     public AtendimentoMedico updateAtendimento(Long id, AtendimentoMedico atendimento) {
         atendimento.setId(id);
-        return atendimentoMedicoRepository.save(atendimento);
+        return atendimentoRepository.save(atendimento);
     }
 
     public void deleteAtendimento(Long id) {
-        atendimentoMedicoRepository.deleteById(id);
+        atendimentoRepository.deleteById(id);
     }
 }
 

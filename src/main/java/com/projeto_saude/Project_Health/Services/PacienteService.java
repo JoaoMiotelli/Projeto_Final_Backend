@@ -1,10 +1,11 @@
 package com.projeto_saude.Project_Health.Services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import com.projeto_saude.Project_Health.Models.Paciente;
 import com.projeto_saude.Project_Health.Repositories.PacienteRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,8 +14,8 @@ public class PacienteService {
     @Autowired
     private PacienteRepository pacienteRepository;
 
-    public Page<Paciente> getAllPacientes(Pageable pageable) {
-        return pacienteRepository.findAll(pageable);
+    public List<Paciente> getAllPacientes() {
+        return pacienteRepository.findAll();
     }
 
     public Optional<Paciente> getPacienteById(Long id) {
@@ -34,5 +35,3 @@ public class PacienteService {
         pacienteRepository.deleteById(id);
     }
 }
-
-
