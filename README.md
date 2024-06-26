@@ -8,8 +8,7 @@ Este projeto tem como objetivo desenvolver uma aplicação de backend para o ger
 - Spring Boot
 - Spring Data JPA
 - Spring Web
-- H2 Database (para ambiente de desenvolvimento)
-- Maven (para gerenciamento de dependências)
+- Maven
 
 ## Membros do Projeto
 - João Victor Miotelli Vitali
