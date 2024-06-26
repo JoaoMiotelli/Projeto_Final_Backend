@@ -3,11 +3,15 @@
 ## Descrição do Projeto
 Este projeto tem como objetivo desenvolver uma aplicação de backend para o gerenciamento de medicamentos, mapeamento de atendimentos médicos e recomendações médicas. Utilizando o framework Spring, o sistema permitirá a criação, leitura, atualização e exclusão (CRUD) de entidades relacionadas a pacientes, medicamentos, atendimentos médicos e recomendações médicas.
 
+## Funcionalidades
+- Cadastro de paciente;
+- Geração do atendimento médico;
+- Cadastro do medicamento;
+- Geração da recomendação médica com base nas informações disponibilizadas no atendimento.
+
 ## Tecnologias Utilizadas
-- Java 11
+- Java
 - Spring Boot
-- Spring Data JPA
-- Spring Web
 - Maven
 
 ## Membros do Projeto
