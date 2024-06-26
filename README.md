@@ -29,20 +29,20 @@ Este projeto tem como objetivo desenvolver uma aplicação de backend para o ger
    cd seu-repositorio
    
 2. **Configurar o Banco de Dados**
-   O projeto está configurado para usar o banco de dados H2 em memória por padrão. Você pode alterar as configurações no arquivo application.properties se desejar usar outro banco de dados.
+- O projeto está configurado para usar o banco de dados H2 em memória por padrão. Você pode alterar as configurações no arquivo application.properties se desejar usar outro banco de dados.
 
 3. **Compilar o Projeto**
-   Execute o comando abaixo para compilar o projeto e baixar todas as dependências necessárias:
+- Execute o comando abaixo para compilar o projeto e baixar todas as dependências necessárias:
    ```sh
    mvn clean install
 
 4. **Executar a Aplicação**
-   Após a compilação, execute o comando abaixo para iniciar a aplicação:
+- Após a compilação, execute o comando abaixo para iniciar a aplicação:
    ```sh
    mvn spring-boot:run
 
 5. **Acessar a Aplicação**
-  A aplicação estará disponível em http://localhost:8080.
+- A aplicação estará disponível em http://localhost:8080.
 
 ## Endpoints
 
