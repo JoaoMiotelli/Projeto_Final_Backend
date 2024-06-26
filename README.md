@@ -49,8 +49,6 @@ A aplicação estará disponível em http://localhost:8080.
 
 ## Endpoints
 
-## Endpoints
-
 ### Pacientes
 - `POST /pacientes` - Criar um novo paciente
 - `GET /pacientes` - Listar todos os pacientes (com paginação)
