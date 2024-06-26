@@ -1,4 +1,5 @@
 package com.projeto_saude.Project_Health.Services;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.projeto_saude.Project_Health.Models.AtendimentoMedico;
@@ -34,5 +35,3 @@ public class AtendimentoMedicoService {
         atendimentoRepository.deleteById(id);
     }
 }
-
-

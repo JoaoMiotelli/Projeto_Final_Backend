@@ -1,9 +1,7 @@
 package com.projeto_saude.Project_Health.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,9 +10,15 @@ public class AtendimentoMedico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long pacienteId;
-    private String descricao;
-    private LocalDateTime dataHora;
+
+    @ManyToOne
+    @JoinColumn(name = "paciente_id", nullable = false)
+    private Paciente paciente;
+
+    @NotNull
+    private LocalDateTime dataAtendimento;
+
+    private String observacoes;
 
     public Long getId() {
         return id;
@@ -24,27 +28,27 @@ public class AtendimentoMedico {
         this.id = id;
     }
 
-    public Long getPacienteId() {
-        return pacienteId;
+    public Paciente getPaciente() {
+        return paciente;
     }
 
-    public void setPacienteId(Long pacienteId) {
-        this.pacienteId = pacienteId;
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public LocalDateTime getDataAtendimento() {
+        return dataAtendimento;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDataAtendimento(LocalDateTime dataAtendimento) {
+        this.dataAtendimento = dataAtendimento;
     }
 
-    public LocalDateTime getDataHora() {
-        return dataHora;
+    public String getObservacoes() {
+        return observacoes;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
 }

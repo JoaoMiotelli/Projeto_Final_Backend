@@ -40,5 +40,3 @@ public class PacienteController {
         pacienteService.deletePaciente(id);
     }
 }
-
-
