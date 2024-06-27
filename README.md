@@ -50,20 +50,23 @@ A aplicação estará disponível em http://localhost:8080.
 ## Endpoints
 
 ### Pacientes
-- `POST /pacientes` - Criar um novo paciente
+- `POST /pacientes` - Criar um novo paciente:
         ```sh
          {
           "nome":"Teste",
           "sobrenome":"da Silva",
           "idade":21
          }
-- `GET /pacientes` - Listar todos os pacientes (com paginação)
+  
+- `GET /pacientes` - Listar todos os pacientes (com paginação):
         ```sh
         http://localhost:8080/pacientes
-- `GET /pacientes/{id}` - Obter detalhes de um paciente
+  
+- `GET /pacientes/{id}` - Obter detalhes de um paciente:
         ```sh
         http://localhost:8080/pacientes/{id}
-- `PUT /pacientes/{id}` - Atualizar um paciente existente
+  
+- `PUT /pacientes/{id}` - Atualizar um paciente existente:
         ```sh
         http://localhost:8080/pacientes/{id}
         {
@@ -72,7 +75,7 @@ A aplicação estará disponível em http://localhost:8080.
           "idade":21
         }
   
-- `DELETE /pacientes/{id}` - Remover um paciente
+- `DELETE /pacientes/{id}` - Remover um paciente:
         ```sh
         http://localhost:8080/pacientes/{id}
 
