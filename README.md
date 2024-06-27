@@ -51,10 +51,30 @@ A aplicação estará disponível em http://localhost:8080.
 
 ### Pacientes
 - `POST /pacientes` - Criar um novo paciente
+        ```sh
+         {
+          "nome":"Teste",
+          "sobrenome":"da Silva",
+          "idade":21
+         }
 - `GET /pacientes` - Listar todos os pacientes (com paginação)
+        ```sh
+        http://localhost:8080/pacientes
 - `GET /pacientes/{id}` - Obter detalhes de um paciente
+        ```sh
+        http://localhost:8080/pacientes/{id}
 - `PUT /pacientes/{id}` - Atualizar um paciente existente
+        ```sh
+        http://localhost:8080/pacientes/{id}
+        {
+          "nome":"Teste",
+          "sobrenome":"da Silva Ribeiro",
+          "idade":21
+        }
+  
 - `DELETE /pacientes/{id}` - Remover um paciente
+        ```sh
+        http://localhost:8080/pacientes/{id}
 
 ### Medicamentos
 - `POST /medicamentos` - Criar um novo medicamento
