@@ -51,7 +51,7 @@ A aplicação estará disponível em http://localhost:8080.
 
 ### Pacientes
 - `POST /pacientes` - Criar um novo paciente:
-  ```sh
+  ```json
          {
           "nome":"Teste",
           "sobrenome":"da Silva",
@@ -59,15 +59,15 @@ A aplicação estará disponível em http://localhost:8080.
          }
   
 - `GET /pacientes` - Listar todos os pacientes (com paginação):
-  ```sh
+  ```json
         http://localhost:8080/pacientes
   
 - `GET /pacientes/{id}` - Obter detalhes de um paciente:
-  ```sh
+  ```json
         http://localhost:8080/pacientes/{id}
   
 - `PUT /pacientes/{id}` - Atualizar um paciente existente:
-  ```sh
+  ```json
      http://localhost:8080/pacientes/{id}
      {
      "nome":"Teste",
@@ -76,7 +76,7 @@ A aplicação estará disponível em http://localhost:8080.
      }
   
 - `DELETE /pacientes/{id}` - Remover um paciente:
-  ```sh
+  ```json
         http://localhost:8080/pacientes/{id}
 
 ### Medicamentos
