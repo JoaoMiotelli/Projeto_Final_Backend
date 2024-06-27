@@ -108,7 +108,7 @@ A aplicação estará disponível em http://localhost:8080.
 - `PUT /medicamentos/{id}` - Atualizar um medicamento existente
 
   ```java
-   http://localhost:8080/medicamentos
+   http://localhost:8080/medicamentos/{id}
 
 - ```java
   {
@@ -196,7 +196,7 @@ A aplicação estará disponível em http://localhost:8080.
 - `PUT /recomendacoes/{id}` - Atualizar uma recomendação médica existente
 
    ```java
-   http://localhost:8080/recomendacoes-medicas
+   http://localhost:8080/recomendacoes-medicas/{id}
 
 - ```java
      {
@@ -215,7 +215,6 @@ A aplicação estará disponível em http://localhost:8080.
    }
   
 - `DELETE /recomendacoes/{id}` - Remover uma recomendação médica
-
 
    ```java
    http://localhost:8080/recomendacoes-medicas/{id}
