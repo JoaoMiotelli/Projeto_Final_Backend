@@ -50,58 +50,181 @@ A aplicação estará disponível em http://localhost:8080.
 ## Endpoints
 
 ### Pacientes
-- `POST /pacientes` - Criar um novo paciente:
+- `POST /pacientes` - Criar um novo paciente
+
   ```json
-         {
-          "nome":"Teste",
-          "sobrenome":"da Silva",
-          "idade":21
-         }
+  {
+     "nome":"Teste",
+     "sobrenome":"da Silva",
+     "idade":21
+  }
   
-- `GET /pacientes` - Listar todos os pacientes (com paginação):
-  ```json
-        http://localhost:8080/pacientes
+- `GET /pacientes` - Listar todos os pacientes
+
+  ```java
+  http://localhost:8080/pacientes
   
-- `GET /pacientes/{id}` - Obter detalhes de um paciente:
-  ```json
-        http://localhost:8080/pacientes/{id}
+- `GET /pacientes/{id}` - Obter detalhes de um paciente
+
+  ```java
+  http://localhost:8080/pacientes/{id}
   
-- `PUT /pacientes/{id}` - Atualizar um paciente existente:
-  ```json
-     http://localhost:8080/pacientes/{id}
-     {
+- `PUT /pacientes/{id}` - Atualizar um paciente existente
+
+  ```java
+  http://localhost:8080/pacientes/{id}
+
+- ```java
+  {
      "nome":"Teste",
      "sobrenome":"da Silva Ribeiro",
      "idade":21
-     }
+  }
   
-- `DELETE /pacientes/{id}` - Remover um paciente:
-  ```json
-        http://localhost:8080/pacientes/{id}
+- `DELETE /pacientes/{id}` - Remover um paciente
+
+  ```java
+  http://localhost:8080/pacientes/{id}
 
 ### Medicamentos
 - `POST /medicamentos` - Criar um novo medicamento
-- `GET /medicamentos` - Listar todos os medicamentos (com paginação)
+
+  ```java
+   {
+    "nome":"Medicamento Teste",
+    "descricao":"Descrição medicamento teste"
+   }
+  
+- `GET /medicamentos` - Listar todos os medicamentos
+
+  ```java
+   http://localhost:8080/medicamentos
+  
 - `GET /medicamentos/{id}` - Obter detalhes de um medicamento
+
+  ```java
+   http://localhost:8080/medicamentos/{id}
+  
 - `PUT /medicamentos/{id}` - Atualizar um medicamento existente
+
+  ```java
+   http://localhost:8080/medicamentos
+
+- ```java
+  {
+    "nome":"Medicamento Teste 2",
+    "descricao":"Descrição medicamento teste 2"
+  }
+  
 - `DELETE /medicamentos/{id}` - Remover um medicamento
+
+  ```java
+  http://localhost:8080/medicamentos/{id}
 
 ### Atendimentos Médicos
 - `POST /atendimentos` - Criar um novo atendimento médico
-- `GET /atendimentos` - Listar todos os atendimentos médicos (com paginação)
+
+  ```java
+  {
+    "paciente":{
+        "id": 1,
+        "nome":"Teste",
+        "idade":1},
+    "dataAtendimento":"2024-06-19T14:30:00",
+    "observacoes":"Teste"
+   }
+  
+- `GET /atendimentos` - Listar todos os atendimentos médicos
+
+  ```java
+   http://localhost:8080/atendimentos
+  
 - `GET /atendimentos/{id}` - Obter detalhes de um atendimento médico
+
+  ```java
+   http://localhost:8080/atendimentos/{id}
+  
 - `PUT /atendimentos/{id}` - Atualizar um atendimento médico existente
+
+  ```java
+   http://localhost:8080/atendimentos/{id}
+
+- ```java
+     {
+       "paciente":{
+           "id": 1,
+           "nome":"Teste",
+           "idade":2},
+       "dataAtendimento":"2024-06-19T14:30:00",
+       "observacoes":"Teste mudança"
+     }
+  
 - `DELETE /atendimentos/{id}` - Remover um atendimento médico
 
+  ```java
+   http://localhost:8080/atendimentos/{id}
+  
 ### Recomendação Médica
 - `POST /recomendacoes` - Criar uma nova recomendação médica
-- `GET /recomendacoes` - Listar todas as recomendações médicas (com paginação)
+
+   ```java
+   {
+       "atendimentoMedico":{
+       "id": 1,
+       "paciente": {
+           "id": 1,
+           "nome": "Teste",
+           "sobrenome": "Sobrenome Teste",
+           "idade": 1
+       },
+       "dataAtendimento": "2024-06-19T14:30:00",
+       "observacoes": "Teste"
+   },  
+       "descricao":"Teste"
+   }
+
+- `GET /recomendacoes` - Listar todas as recomendações médicas
+
+   ```java
+   http://localhost:8080/recomendacoes-medicas
+   
 - `GET /recomendacoes/{id}` - Obter detalhes de uma recomendação médica
+
+   ```java
+   http://localhost:8080/recomendacoes-medicas/{id}
+   
 - `PUT /recomendacoes/{id}` - Atualizar uma recomendação médica existente
+
+   ```java
+   http://localhost:8080/recomendacoes-medicas
+
+- ```java
+     {
+       "atendimentoMedico":{
+       "id": 1,
+       "paciente": {
+           "id": 1,
+           "nome": "Teste",
+           "sobrenome": "Sobrenome Teste",
+           "idade": 1
+       },
+       "dataAtendimento": "2024-06-19T14:30:00",
+       "observacoes": "Teste"
+   },  
+       "descricao":"Teste 2"
+   }
+  
 - `DELETE /recomendacoes/{id}` - Remover uma recomendação médica
+
+
+   ```java
+   http://localhost:8080/recomendacoes-medicas/{id}
 
 ### Ajuda
 - `GET /ajuda` - Obter informações sobre os estudantes e o projeto
+
+   ```java
+   http://localhost:8080/ajuda
 
 ## Tratamento de Erros
 A aplicação inclui um manipulador global de exceções para lidar com erros do cliente e retornar respostas apropriadas. Exceções personalizadas são utilizadas para fornecer mensagens de erro claras.
